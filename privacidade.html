@@ -31,10 +31,11 @@
 <ul>
   <li><strong>Token de sessão da Globo</strong> — se você optar por entrar com sua conta Globo dentro do app (o login é opcional; o app funciona sem ele), o token da sessão fica guardado apenas no Cofre de Chaves (Keychain) do seu iPhone, restrito a este aparelho. Ele serve para o app mostrar a sua escalação antes do fechamento do mercado e para enviar, pelo editor de escalação do app, as alterações que você confirmar na tela de revisão — nada é enviado sem a sua confirmação. Esse token <strong>nunca é enviado aos nossos servidores</strong>.</li>
   <li><strong>Cookies de login da Globo</strong> — se você deixar a opção <strong>"Manter minha sessão"</strong> ligada na hora de entrar, os cookies da página oficial de login da Globo ficam guardados numa área própria do app, somente neste iPhone. Eles servem para o app renovar a sua sessão automaticamente quando você abre o app, sem pedir a senha de novo. Esses cookies <strong>nunca são enviados aos nossos servidores</strong> e não são cookies de rastreamento: são os cookies da sua própria sessão na Globo. Se você entrar sem manter a sessão, nada disso é guardado.</li>
+  <li><strong>Chave de renovação da Globo (refresh token)</strong> — também somente com a opção <strong>"Manter minha sessão"</strong> ligada: junto do token de sessão, o app guarda no Cofre de Chaves (Keychain) deste iPhone a chave de renovação que a própria Globo emite no login. Ela serve para o app obter um token de sessão novo diretamente da Globo quando você abre o app — é a via principal de renovação, e os cookies acima são a reserva, caso ela falhe. Essa chave <strong>nunca é enviada aos nossos servidores</strong>; ela só viaja, deste aparelho, para o serviço oficial de renovação da Globo.</li>
   <li><strong>Times e listas que você acompanha</strong>, suas preferências de aparência, tema e demais ajustes do app.</li>
   <li><strong>Token de instalação do app</strong>, um código aleatório gerado no aparelho que identifica esta instalação na hora de registrar os alertas (no servidor guardamos apenas um resumo criptográfico dele — ver abaixo).</li>
 </ul>
-<p>Usar a opção <strong>"Apagar sessão"</strong> dentro do app remove na hora o token e os cookies de login do aparelho. Se você apagar o app, os dados em armazenamento comum somem com ele; itens do Cofre de Chaves restritos a este aparelho são apagados automaticamente quando o app é reinstalado e aberto pela primeira vez (essa faxina roda no lançamento).</p>
+<p>Usar a opção <strong>"Apagar sessão"</strong> dentro do app remove na hora o token, a chave de renovação e os cookies de login do aparelho. Se você apagar o app, os dados em armazenamento comum somem com ele; itens do Cofre de Chaves restritos a este aparelho são apagados automaticamente quando o app é reinstalado e aberto pela primeira vez (essa faxina roda no lançamento).</p>
 
 <h2>O que vai para o nosso servidor (somente se você ligar os alertas)</h2>
 <p>Os alertas nascem <strong>desligados</strong>: nada é registrado antes de você ligar, na folha de alertas do app, depois de ler o cartão que explica este registro. Se você ativar os alertas ao vivo, o app registra no nosso servidor:</p>
@@ -59,6 +60,7 @@
 <ul>
   <li><strong>Token de sessão no aparelho:</strong> mostrar a sua escalação da rodada antes do fechamento do mercado e enviar, pelo editor de escalação, as alterações que você confirmar na tela de revisão, quando você escolhe entrar com sua conta.</li>
   <li><strong>Cookies de login no aparelho:</strong> renovar automaticamente a sua sessão quando você abre o app, para você não precisar entrar de novo a cada dia — somente quando você liga "Manter minha sessão".</li>
+  <li><strong>Chave de renovação no aparelho:</strong> obter um token de sessão novo da Globo ao abrir o app (a via principal de renovação; os cookies são a reserva) — somente quando você liga "Manter minha sessão".</li>
   <li><strong>Registro de alertas no servidor:</strong> enviar os alertas de gol e eventos e manter o cartão ao vivo atualizado durante a rodada.</li>
   <li><strong>Times seguidos, listas e ajustes no aparelho:</strong> mostrar as parciais e tabelas do seu jeito, no próprio app.</li>
   <li>A aba <strong>Dicas</strong> apenas lê um arquivo público de dicas. Não exige conta e não coleta nada de quem lê.</li>
@@ -89,14 +91,14 @@
 
 <h2>Segurança</h2>
 <ul>
-  <li>O token de sessão fica no Cofre de Chaves do iOS, restrito ao aparelho e fora de sincronização com outros aparelhos e com o iCloud; como todo item do Cofre de Chaves restrito ao aparelho, ele pode constar de um backup cifrado deste mesmo iPhone.</li>
+  <li>O token de sessão e a chave de renovação ficam no Cofre de Chaves do iOS, restritos ao aparelho e fora de sincronização com outros aparelhos e com o iCloud; como todo item do Cofre de Chaves restrito ao aparelho, eles podem constar de um backup cifrado deste mesmo iPhone.</li>
   <li>No servidor, o acesso ao registro de alertas exige o token da sua instalação, guardamos apenas o resumo criptográfico dele, e o arquivo de registros tem acesso restrito no servidor.</li>
   <li>As comunicações de registro usam conexão protegida, e nenhum dado pessoal é escrito em registros de log do sistema de alertas.</li>
 </ul>
 
 <h2>Seus direitos (art. 18 da LGPD)</h2>
 <p>Você tem direito a: confirmar se tratamos dados seus; acessar esses dados; corrigir dados incompletos ou errados; pedir a anonimização, o bloqueio ou a eliminação de dados desnecessários ou tratados em desconformidade; pedir a portabilidade; eliminar os dados tratados com base no seu consentimento; saber com quem compartilhamos; e revogar o consentimento.</p>
-<p>Na prática, quase tudo se resolve no próprio app: desligar os alertas apaga o registro do servidor (com confirmação mostrada na folha de alertas), e apagar a sessão remove o token e os cookies de login do aparelho. Para qualquer outro pedido, escreva para <strong>fpversiani@gmail.com</strong> que responderemos pelo mesmo canal.</p>
+<p>Na prática, quase tudo se resolve no próprio app: desligar os alertas apaga o registro do servidor (com confirmação mostrada na folha de alertas), e apagar a sessão remove o token, a chave de renovação e os cookies de login do aparelho. Para qualquer outro pedido, escreva para <strong>fpversiani@gmail.com</strong> que responderemos pelo mesmo canal.</p>
 
 <h2>Crianças e adolescentes</h2>
 <p>O Secador FC não é dirigido a crianças e não coleta intencionalmente dados de menores. O uso pressupõe uma conta no Cartola FC, sujeita às regras da própria Globo.</p>
